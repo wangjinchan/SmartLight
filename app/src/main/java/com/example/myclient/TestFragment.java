@@ -58,8 +58,8 @@ public class TestFragment extends Fragment {
                 .build());
 
         IPText= view.findViewById(R.id.IPText);
-      // IPText.setText("10.10.10.11:8080");
-        IPText.setText("192.168.1.127:8080");
+       IPText.setText("10.10.10.11:8080");
+        //IPText.setText("192.168.1.127:8080");
         startButton= view.findViewById(R.id.StartConnect);
         startButton.setOnClickListener(StartClickListener);
 
@@ -261,7 +261,7 @@ public class TestFragment extends Fragment {
 
             }else if (msg.what==1){
                 showDialog("连接成功！");
-                recvText.setText("已连接衣柜\n");
+                recvText.setText("已连接台灯\n");
                 IPText.setEnabled(false);//锁定ip地址和端口号
                 isConnecting = true;
                 startButton.setText("停止连接");

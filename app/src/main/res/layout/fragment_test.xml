@@ -50,7 +50,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="欢迎使用智能衣柜！"
+                android:text="欢迎使用智能台灯！"
                 android:textSize="20dp" />
 
         </RelativeLayout>
