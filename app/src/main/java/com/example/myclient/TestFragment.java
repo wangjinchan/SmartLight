@@ -36,14 +36,13 @@ public class TestFragment extends Fragment {
     private static PrintWriter mPrintWriterClient=null;
     private  String res="";
     private static TextView recvText,recvText1,recvText2;
-    private View view;
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
 
-         view = inflater.inflate(R.layout.fragment_test, null);
+        View view = inflater.inflate(R.layout.fragment_test, null);
         mContext=getContext();
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()
@@ -249,12 +248,13 @@ public class TestFragment extends Fragment {
             {
                 char []arrs=null;
                 arrs=res.toCharArray();//接收来自服务器的字符串
-
-                if (arrs[0]=='T'){
-                    recvText1.setText("温度: "+arrs[3] + arrs[4] + "℃" + ' ' );
-                }else if (arrs[0]=='R'){
-                    recvText2.setText("湿度: "+arrs[3] + arrs[4] + "%" + ' ' );
-                }
+                recvText1.setText("温度: "+arrs[2] + arrs[3] + "℃" + ' ' );
+                recvText2.setText("湿度: "+arrs[7] + arrs[8] + "%" + ' ' );
+//                if (arrs[0]=='T'){
+//                    recvText1.setText("温度: "+arrs[3] + arrs[4] + "℃" + ' ' );
+//                }else if (arrs[0]=='R'){
+//                    recvText2.setText("湿度: "+arrs[3] + arrs[4] + "%" + ' ' );
+//                }
             }else if (msg.what==2){
                 showDialog("连接失败，服务器走丢了");
                 startButton.setText("开始连接");
@@ -311,7 +311,7 @@ public class TestFragment extends Fragment {
                     }
                 }else
                 {
-                    Toast.makeText(mContext, "没有连接", Toast.LENGTH_SHORT).show();
+                    showDialog("没有连接！");
                 }
     }
 
