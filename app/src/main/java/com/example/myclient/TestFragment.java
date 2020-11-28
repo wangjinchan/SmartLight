@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -36,6 +36,8 @@ public class TestFragment extends Fragment {
     private static PrintWriter mPrintWriterClient=null;
     private  String res="";
     private static TextView recvText,recvText1,recvText2;
+    private ImageView imageView;
+    private TempControlView tempControl;
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,21 +60,20 @@ public class TestFragment extends Fragment {
                 .build());
 
         IPText= view.findViewById(R.id.IPText);
-       IPText.setText("10.10.10.11:8080");
-        //IPText.setText("192.168.1.127:8080");
+     //  IPText.setText("10.10.10.11:8080");
+        IPText.setText("192.168.1.127:8080");
         startButton= view.findViewById(R.id.StartConnect);
         startButton.setOnClickListener(StartClickListener);
 
         recvText= view.findViewById(R.id.tv1);
-        recvText.setMovementMethod(ScrollingMovementMethod.getInstance());
 
         recvText1= view.findViewById(R.id.textView3);
-        recvText1.setMovementMethod(ScrollingMovementMethod.getInstance());
 
         recvText2= view.findViewById(R.id.textView4);
-        recvText2.setMovementMethod(ScrollingMovementMethod.getInstance());
 
-        TempControlView tempControl = view.findViewById(R.id.temp_control);
+        imageView=view.findViewById(R.id.light);
+
+         tempControl = view.findViewById(R.id.temp_control);
         // 设置三格代表温度1度
         tempControl.setAngleRate(1);
         tempControl.setTemp(0, 5, 0);
@@ -84,22 +85,40 @@ public class TestFragment extends Fragment {
             public void change(int temp) {
                 switch (temp){
                     case 0:
-                        send("*C");
+                        if ( send("*C")){
+                            imageView.setImageResource(R.drawable.light1);
+                        }
+
                         break;
                     case 1:
-                        send("*1");
+                        if ( send("*1")){
+                            imageView.setImageResource(R.drawable.light2);
+                        }
+
                         break;
                     case 2:
-                        send("*2");
+                        if ( send("*2")){
+                            imageView.setImageResource(R.drawable.light3);
+                        }
+
                         break;
                     case 3:
-                        send("*3");
+                        if ( send("*3")){
+                            imageView.setImageResource(R.drawable.light4);
+                        }
+
                         break;
                     case 4:
-                        send("*4");
+                        if ( send("*4")){
+                            imageView.setImageResource(R.drawable.light5);
+                        }
+
                         break;
                     case 5:
-                        send("*5");
+                        if ( send("*5")){
+                            imageView.setImageResource(R.drawable.light6);
+                        }
+
                         break;
                 }
             }
@@ -110,22 +129,40 @@ public class TestFragment extends Fragment {
             public void onClick(int temp) {
                 switch (temp){
                     case 0:
-                        send("*C");
+                        if ( send("*C")){
+                            imageView.setImageResource(R.drawable.light1);
+                        }
+
                         break;
                     case 1:
-                        send("*1");
+                        if ( send("*1")){
+                            imageView.setImageResource(R.drawable.light2);
+                        }
+
                         break;
                     case 2:
-                        send("*2");
+                        if ( send("*2")){
+                            imageView.setImageResource(R.drawable.light3);
+                        }
+
                         break;
                     case 3:
-                        send("*3");
+                        if ( send("*3")){
+                            imageView.setImageResource(R.drawable.light4);
+                        }
+
                         break;
                     case 4:
-                        send("*4");
+                        if ( send("*4")){
+                            imageView.setImageResource(R.drawable.light5);
+                        }
+
                         break;
                     case 5:
-                        send("*5");
+                        if ( send("*5")){
+                            imageView.setImageResource(R.drawable.light6);
+                        }
+
                         break;
                 }
             }
@@ -155,6 +192,7 @@ public class TestFragment extends Fragment {
                         startButton.setText("开始连接");
                         IPText.setEnabled(true);//可以输入ip和端口号
                         recvText.setText("断开连接\n");
+                        imageView.setImageResource(R.drawable.light1);
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -248,8 +286,13 @@ public class TestFragment extends Fragment {
             {
                 char []arrs=null;
                 arrs=res.toCharArray();//接收来自服务器的字符串
-                recvText1.setText("温度: "+arrs[2] + arrs[3] + "℃" + ' ' );
-                recvText2.setText("湿度: "+arrs[7] + arrs[8] + "%" + ' ' );
+                if (arrs.length>=9) {
+                    recvText1.setText("温度: " + arrs[2] + arrs[3] + "℃" + ' ');
+                    recvText2.setText("湿度: " + arrs[7] + arrs[8] + "%" + ' ');
+                }else {
+                    showDialog("收到格式错误的数据");
+                }
+
 //                if (arrs[0]=='T'){
 //                    recvText1.setText("温度: "+arrs[3] + arrs[4] + "℃" + ' ' );
 //                }else if (arrs[0]=='R'){
@@ -296,7 +339,7 @@ public class TestFragment extends Fragment {
         }
         return new String(temp);
     }
-    private void send(String msg){
+    private boolean send(String msg){
         if(isConnecting&&mSocketClient!=null)
                 {
                     String msgText =msg;//发送给单片机的某个命令
@@ -304,7 +347,8 @@ public class TestFragment extends Fragment {
                     {
                         mPrintWriterClient.print(msgText);
                         mPrintWriterClient.flush();
-                    //    Toast.makeText(mContext,msg,Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(mContex,msg,Toast.LENGTH_SHORT).show();
+                        return true;
                     }catch (Exception e) {
                         // TODO: handle exception
                         Toast.makeText(mContext, "发送异常"+e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -312,7 +356,9 @@ public class TestFragment extends Fragment {
                 }else
                 {
                     showDialog("没有连接！");
+                    return false;
                 }
+        return false;
     }
 
 }

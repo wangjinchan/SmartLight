@@ -102,13 +102,13 @@ public class TempControlView extends View {
         titlePaint = new Paint();
         titlePaint.setAntiAlias(true);
         titlePaint.setTextSize(sp2px(15));
-        titlePaint.setColor(Color.parseColor("#3B434E"));
+        titlePaint.setColor(Color.parseColor("#FFFFFF"));
         titlePaint.setStyle(Paint.Style.STROKE);
 
         tempFlagPaint = new Paint();
         tempFlagPaint.setAntiAlias(true);
         tempFlagPaint.setTextSize(sp2px(25));
-        tempFlagPaint.setColor(Color.parseColor("#3B434E"));
+        tempFlagPaint.setColor(Color.parseColor("#FFFFFF"));
         tempFlagPaint.setStyle(Paint.Style.STROKE);
 
         buttonPaint = new Paint();

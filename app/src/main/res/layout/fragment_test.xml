@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7E7F1"
+    android:background="#121852"
     android:orientation="vertical"
     tools:context=".HomeActivity" >
 
@@ -22,7 +22,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="#ffffff"
+                android:background="#CFCACA"
                 android:id="@+id/IPText"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -34,8 +34,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="2"
                 android:id="@+id/StartConnect"
+                android:background="#C3C7DA"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:textSize="20dp"
                 android:text="连接台灯" />
         </LinearLayout>
@@ -50,160 +51,52 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
                 android:text="欢迎使用智能台灯！"
                 android:textSize="20dp" />
 
         </RelativeLayout>
-
-        <com.example.myclient.TempControlView
-            android:layout_gravity="center"
-            android:id="@+id/temp_control"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_centerInParent="true"
-             />
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical" >-->
-<!--            <LinearLayout-->
-<!--                android:gravity="center"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal">-->
-<!--                <TextView-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="通风"-->
-<!--                    android:textSize="25sp"-->
-<!--                    android:id="@+id/textView" />-->
-<!--                <Switch-->
-<!--                    android:id="@+id/switch_c"-->
-<!--                    android:layout_marginLeft="40dp"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textOff="OFF"-->
-<!--                    android:textOn="ON"-->
-<!--                    android:thumb="@drawable/thumb"-->
-<!--                    android:track="@drawable/track"-->
-
-<!--                    />-->
-<!--            </LinearLayout>-->
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <com.example.myclient.TempControlView
+        android:id="@+id/temp_control"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        />
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/light"
+        android:src="@drawable/light1"/>
+</LinearLayout>
 
 
-
-<!--            <LinearLayout-->
-<!--                android:gravity="center"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal">-->
-<!--                <TextView-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:gravity="center"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="抽湿"-->
-<!--                    android:textSize="25sp"-->
-<!--                    android:id="@+id/textView2" />-->
-<!--                <Switch-->
-<!--                    android:id="@+id/switch_t"-->
-<!--                    android:layout_marginLeft="40dp"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textOff="OFF"-->
-<!--                    android:textOn="ON"-->
-<!--                    android:thumb="@drawable/thumb"-->
-<!--                    android:track="@drawable/track"-->
-
-<!--                    />-->
-<!--            </LinearLayout>-->
-
-
-
-<!--        </LinearLayout>-->
-
-<!--        <Spinner-->
-<!--            android:id="@+id/spin"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            />-->
-<!--        <LinearLayout-->
-<!--            android:layout_gravity="center"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <Button-->
-<!--                android:id="@+id/btn1"-->
-<!--                android:textSize="20dp"-->
-<!--                android:text="1档"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--            <Button-->
-<!--                android:id="@+id/btn2"-->
-<!--                android:text="2档"-->
-<!--                android:textSize="20dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--            <Button-->
-<!--                android:id="@+id/btn3"-->
-<!--                android:text="3档"-->
-<!--                android:textSize="20dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-
-<!--        </LinearLayout>-->
-<!--        <LinearLayout-->
-<!--            android:layout_gravity="center"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <Button-->
-<!--                android:id="@+id/btn4"-->
-<!--                android:text="4档"-->
-<!--                android:textSize="20dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--            <Button-->
-<!--                android:id="@+id/btn5"-->
-<!--                android:text="5档"-->
-<!--                android:layout_weight="1"-->
-<!--                android:textSize="20dp"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--            <Button-->
-<!--                android:id="@+id/btn6"-->
-<!--                android:text="关闭"-->
-<!--                android:layout_weight="1"-->
-<!--                android:textSize="20dp"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"/>-->
-<!--        </LinearLayout>-->
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+           >
             <TextView
+                android:layout_weight="1"
                 android:textSize="25sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
                 android:text="温度：0℃"
                 android:id="@+id/textView3" />
 
             <TextView
+                android:layout_weight="1"
                 android:textSize="25sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="湿度：0%"
+                android:textColor="#ffffff"
                 android:id="@+id/textView4" />
         </LinearLayout>
 
