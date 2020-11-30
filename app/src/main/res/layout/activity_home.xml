@@ -11,6 +11,4 @@
      android:id="@+id/home"
      android:name="com.example.myclient.TestFragment"/>
 
-
-
 </RelativeLayout>
