@@ -1,5 +1,4 @@
 package com.example.myclient;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -101,7 +100,7 @@ public class TempControlView extends View {
 
         titlePaint = new Paint();
         titlePaint.setAntiAlias(true);
-        titlePaint.setTextSize(sp2px(15));
+        titlePaint.setTextSize(sp2px(20));
         titlePaint.setColor(Color.parseColor("#FFFFFF"));
         titlePaint.setStyle(Paint.Style.STROKE);
 
@@ -172,7 +171,6 @@ public class TempControlView extends View {
 
     /**
      * 绘制刻度盘下的圆弧
-     *
      * @param canvas 画布
      */
     private void drawArc(Canvas canvas) {
@@ -186,7 +184,6 @@ public class TempControlView extends View {
 
     /**
      * 绘制标题与温度标识
-     *
      * @param canvas 画布
      */
     private void drawText(Canvas canvas) {
@@ -217,7 +214,6 @@ public class TempControlView extends View {
 
     /**
      * 绘制旋转按钮
-     *
      * @param canvas 画布
      */
     private void drawButton(Canvas canvas) {
@@ -420,7 +416,6 @@ public class TempControlView extends View {
         angleOne = (float) 270 / (maxTemp - minTemp) / angleRate;
         // 计算旋转角度
         rotateAngle = (float) ((temp - minTemp) * angleRate * angleOne);
-
         invalidate();
     }
 

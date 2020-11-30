@@ -66,20 +66,16 @@ public class TestFragment extends Fragment {
         startButton.setOnClickListener(StartClickListener);
 
         recvText= view.findViewById(R.id.tv1);
-
         recvText1= view.findViewById(R.id.textView3);
-
         recvText2= view.findViewById(R.id.textView4);
-
         imageView=view.findViewById(R.id.light);
 
-         tempControl = view.findViewById(R.id.temp_control);
+        tempControl = view.findViewById(R.id.temp_control);
         // 设置三格代表温度1度
         tempControl.setAngleRate(1);
         tempControl.setTemp(0, 5, 0);
         //设置旋钮是否可旋转
         tempControl.setCanRotate(true);
-
         tempControl.setOnTempChangeListener(new TempControlView.OnTempChangeListener() {
             @Override
             public void change(int temp) {
@@ -88,37 +84,31 @@ public class TestFragment extends Fragment {
                         if ( send("*C")){
                             imageView.setImageResource(R.drawable.light1);
                         }
-
                         break;
                     case 1:
                         if ( send("*1")){
                             imageView.setImageResource(R.drawable.light2);
                         }
-
                         break;
                     case 2:
                         if ( send("*2")){
                             imageView.setImageResource(R.drawable.light3);
                         }
-
                         break;
                     case 3:
                         if ( send("*3")){
                             imageView.setImageResource(R.drawable.light4);
                         }
-
                         break;
                     case 4:
                         if ( send("*4")){
                             imageView.setImageResource(R.drawable.light5);
                         }
-
                         break;
                     case 5:
                         if ( send("*5")){
                             imageView.setImageResource(R.drawable.light6);
                         }
-
                         break;
                 }
             }
@@ -132,37 +122,31 @@ public class TestFragment extends Fragment {
                         if ( send("*C")){
                             imageView.setImageResource(R.drawable.light1);
                         }
-
                         break;
                     case 1:
                         if ( send("*1")){
                             imageView.setImageResource(R.drawable.light2);
                         }
-
                         break;
                     case 2:
                         if ( send("*2")){
                             imageView.setImageResource(R.drawable.light3);
                         }
-
                         break;
                     case 3:
                         if ( send("*3")){
                             imageView.setImageResource(R.drawable.light4);
                         }
-
                         break;
                     case 4:
                         if ( send("*4")){
                             imageView.setImageResource(R.drawable.light5);
                         }
-
                         break;
                     case 5:
                         if ( send("*5")){
                             imageView.setImageResource(R.drawable.light6);
                         }
-
                         break;
                 }
             }
@@ -197,9 +181,7 @@ public class TestFragment extends Fragment {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
-
             }else
             {
                 mThreadClient = new Thread(mRunnable);
@@ -347,7 +329,6 @@ public class TestFragment extends Fragment {
                     {
                         mPrintWriterClient.print(msgText);
                         mPrintWriterClient.flush();
-                    //    Toast.makeText(mContex,msg,Toast.LENGTH_SHORT).show();
                         return true;
                     }catch (Exception e) {
                         // TODO: handle exception

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121852"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".HomeActivity" >
 
@@ -48,6 +48,7 @@
 
             <TextView
                 android:id="@+id/tv1"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +87,7 @@
                 android:textSize="25sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:textColor="#810303"
                 android:text="温度：0℃"
                 android:id="@+id/textView3" />
 
@@ -96,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="湿度：0%"
-                android:textColor="#ffffff"
+                android:textColor="#810303"
                 android:id="@+id/textView4" />
         </LinearLayout>
 
